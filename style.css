@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+}
+
+.box-container {
+    background-color: #050210;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-circle {
+    position: relative;
+    background-color: violet;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.box-circle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+    transform: rotate(20deg);
+    animation-name: box-circle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    z-index: -2;
+}
+
+.box-circle::before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    border-radius: 50%;
+    background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+    transform: rotate(20deg);
+    animation-name: box-circle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    z-index: -1;
+    filter: blur(80px);
+}
+
+.inner-animation {
+    background-color: #000;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.box-animation-circle {
+    position: absolute;
+    background-color: #050210;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation-name: box-animation-circle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+
+@keyframes box-circle {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes box-animation-circle {
+    0% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
